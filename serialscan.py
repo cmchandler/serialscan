@@ -1,8 +1,14 @@
 import serial
+import sys
 
+# PORT = "/dev/pts/6"
 PORT = "/dev/ttyUSB0"
-BAUDRATE = "9600"
-FILE = "test_scan"
+BAUDRATE = "115200"
+
+if sys.argv[1] is None:
+    FILE = "capture_default"
+else:
+    FILE = sys.argv[1]
 
 ser = serial.Serial(
     port=PORT,
